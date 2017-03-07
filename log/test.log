@@ -1,0 +1,265 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john1@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john1@lala.com', '$2a$04$U8Nvl3S3TY8zzXoSvqKlPOPzHUjEZZfEVQyMzRpatvD7DwXDAe5/S', '2017-03-07 00:36:43', '2017-03-07 00:36:43', 'John Spencer1')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john2@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `roles`, `name`) VALUES ('john2@lala.com', '$2a$04$D9FI9JkiXBAKHsWXSvtkeuo20fAz5wa2QwG1yFGYqs.QbBWWnLoXG', '2017-03-07 00:36:43', '2017-03-07 00:36:43', 'admin', 'John Spencer2')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 1', 'lala popo 2', 1, 'opened', '2017-03-07 00:36:43', '2017-03-07 00:36:43')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/admin/requests/1/resolve" for 127.0.0.1 at 2017-03-06 21:36:43 -0300
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (9.8ms)[0m  [1m[33mUPDATE `users` SET `sign_in_count` = 1, `current_sign_in_at` = '2017-03-07 00:36:43', `last_sign_in_at` = '2017-03-07 00:36:43', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Admin::RequestsController#resolve as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRequest Load (0.9ms)[0m  [1m[34mSELECT  `requests`.* FROM `requests` WHERE `requests`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE `requests` SET `state` = 'resolved' WHERE `requests`.`id` = 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 49ms (Views: 0.3ms | ActiveRecord: 3.6ms)
+  [1m[36mRequest Load (0.9ms)[0m  [1m[34mSELECT  `requests`.* FROM `requests` WHERE `requests`.`id` = 1 LIMIT 1[0m
+  [1m[35m (49.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john3@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `roles`, `name`) VALUES ('john3@lala.com', '$2a$04$JJ89wKVWXhLfk6672u2X..PcqwUyra1Hy3VqXJEwAwJVO8FOo9ot.', '2017-03-07 00:36:43', '2017-03-07 00:36:43', 'admin', 'John Spencer3')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john4@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john4@lala.com', '$2a$04$PjXrsDkfnXtsRPtO0ARuHuCg3iNVVqBlHfhNHCmT7iDPUcP5Qu8CO', '2017-02-10 13:00:00', '2017-02-10 13:00:00', 'John Spencer4')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 3', 'lala popo 4', 4, 'resolved', '2017-02-10 13:00:00', '2017-02-10 13:00:00')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john5@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john5@lala.com', '$2a$04$KdqHHsMvxDFlmxjB.IBfkeaJjJsha9C9azuO/Ww.bCdO8P92JYXVW', '2017-02-10 13:00:00', '2017-02-10 13:00:00', 'John Spencer5')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 5', 'lala popo 6', 5, 'resolved', '2017-02-10 13:00:00', '2017-02-10 13:00:00')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john6@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john6@lala.com', '$2a$04$D85qgTfL5nOZdRYzZ/mwQeLhyDgPy0xjk1T72GzISa/QYYR4ITLum', '2017-03-01 13:00:00', '2017-03-01 13:00:00', 'John Spencer6')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 7', 'lala popo 8', 6, 'resolved', '2017-03-01 13:00:00', '2017-03-01 13:00:00')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john7@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john7@lala.com', '$2a$04$eez3FoD0tZO.Af5VaF5uM.jaGn6riWmmArlWaM1cs8ywrnorU5K1.', '2017-03-01 13:00:00', '2017-03-01 13:00:00', 'John Spencer7')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 9', 'lala popo 10', 7, 'opened', '2017-03-01 13:00:00', '2017-03-01 13:00:00')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/admin/requests/report" for 127.0.0.1 at 2017-03-01 10:00:00 -0300
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[33mUPDATE `users` SET `sign_in_count` = 1, `current_sign_in_at` = '2017-03-01 13:00:00', `last_sign_in_at` = '2017-03-01 13:00:00', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `updated_at` = '2017-03-01 13:00:00' WHERE `users`.`id` = 3[0m
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Admin::RequestsController#report as HTML
+  Rendering admin/requests/report.html.erb within layouts/admin
+  [1m[36mRequest Load (0.0ms)[0m  [1m[34mSELECT `requests`.* FROM `requests` WHERE `requests`.`state` = 'resolved' AND (`requests`.`updated_at` BETWEEN '2017-02-01 03:00:00' AND '2017-03-01 03:00:00')[0m
+  Rendered admin/requests/_report.html.erb (0.0ms)
+  Rendered admin/requests/report.html.erb within layouts/admin (0.0ms)
+Completed 200 OK in 0ms (Views: 19291.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (45.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john8@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john8@lala.com', '$2a$04$RMrpqmJ8rSZsy2lsgKzROeGEaZyuTtU5QwdG.DsR5oQEa3g2gyh/e', '2017-03-07 00:37:03', '2017-03-07 00:37:03', 'John Spencer8')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john9@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john9@lala.com', '$2a$04$9ex7w2/DledqUiiiebq0i.lLKDuHv5vYb.nbmPN/M1fG9cyTic5ym', '2017-03-07 00:37:03', '2017-03-07 00:37:03', 'John Spencer9')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 11', 'lala popo 12', 8, 'opened', '2017-03-07 00:37:03', '2017-03-07 00:37:03')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/requests/6/comments" for 127.0.0.1 at 2017-03-06 21:37:03 -0300
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `users` SET `sign_in_count` = 1, `current_sign_in_at` = '2017-03-07 00:37:03', `last_sign_in_at` = '2017-03-07 00:37:03', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1' WHERE `users`.`id` = 9[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CommentsController#create as JSON
+  Parameters: {"comment"=>{"body"=>"lala"}, "request_id"=>"6"}
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT  `requests`.* FROM `requests` WHERE `requests`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `comments` (`body`, `request_id`, `user_id`, `created_at`, `updated_at`) VALUES ('lala', 6, 9, '2017-03-07 00:37:03', '2017-03-07 00:37:03')[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 57ms (Views: 0.2ms | ActiveRecord: 4.9ms)
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT  `requests`.* FROM `requests` WHERE `requests`.`id` = 6 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`request_id` = 6 ORDER BY `comments`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 9 LIMIT 1[0m
+  [1m[35m (42.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john10@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john10@lala.com', '$2a$04$DKOz.0WaP7RuKsLQpjivseo8Fm/VbIHy93FlrS1rYZGbrNh5Pa3/m', '2017-03-07 00:37:03', '2017-03-07 00:37:03', 'John Spencer10')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john11@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john11@lala.com', '$2a$04$7t14M7TdW8SouUGNQaLYh.JBRb5mvYfXogNGnW0IIJYXw47lQ6eae', '2017-03-07 00:37:03', '2017-03-07 00:37:03', 'John Spencer11')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john12@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john12@lala.com', '$2a$04$baFu3KkeWg.HWaTFsJDuq.DJwfP5xotWVAdsNNhgWJ/fjX8Y.PPGa', '2017-03-07 00:37:03', '2017-03-07 00:37:03', 'John Spencer12')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 13', 'lala popo 14', 10, 'opened', '2017-03-07 00:37:03', '2017-03-07 00:37:03')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 15', 'lala popo 16', 10, 'opened', '2017-03-07 00:37:03', '2017-03-07 00:37:03')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 17', 'lala popo 18', 11, 'opened', '2017-03-07 00:37:03', '2017-03-07 00:37:03')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `comments` (`body`, `request_id`, `user_id`, `created_at`, `updated_at`) VALUES ('lala', 7, 12, '2017-03-07 00:37:03', '2017-03-07 00:37:03')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (64.1ms)[0m  [1m[32mINSERT INTO `comments` (`body`, `request_id`, `user_id`, `created_at`, `updated_at`) VALUES ('lala', 7, 10, '2017-03-07 00:37:03', '2017-03-07 00:37:03')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/requests/7/comments" for 127.0.0.1 at 2017-03-06 21:37:03 -0300
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `users` SET `sign_in_count` = 1, `current_sign_in_at` = '2017-03-07 00:37:03', `last_sign_in_at` = '2017-03-07 00:37:03', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1' WHERE `users`.`id` = 10[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CommentsController#index as HTML
+  Parameters: {"request_id"=>"7"}
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT  `requests`.* FROM `requests` WHERE `requests`.`id` = 7 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`request_id` = 7 ORDER BY `comments`.`created_at` DESC[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (12, 10)[0m
+Completed 200 OK in 46ms (Views: 0.2ms | ActiveRecord: 1.9ms)
+  [1m[35m (67.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Started POST "/users" for 127.0.0.1 at 2017-03-06 21:37:03 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"name"=>"joao", "email"=>"lala@lala.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'lala@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('lala@lala.com', '$2a$04$kvpW.16DEaR6wRuXJZ6IYO7Z9s8TOXInoPLIq2Zr4Wsqkd1MjQbxq', '2017-03-07 00:37:03', '2017-03-07 00:37:03', 'joao')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `users` SET `sign_in_count` = 1, `current_sign_in_at` = '2017-03-07 00:37:03', `last_sign_in_at` = '2017-03-07 00:37:03', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1' WHERE `users`.`id` = 13[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 54ms (ActiveRecord: 3.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (44.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john13@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john13@lala.com', '$2a$04$1bDngKzqnbIF9TrWsXAnx.tGDMfB6Zg.NDaSnzUx/A/I.eVxUpBui', '2017-03-07 00:37:03', '2017-03-07 00:37:03', 'John Spencer13')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john14@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john14@lala.com', '$2a$04$HpShmdwf71lvfKK6b.WmTuvcYlvevU7xl6mEaM6/3TjvNyvRq2K6u', '2017-03-07 00:37:03', '2017-03-07 00:37:03', 'John Spencer14')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 19', 'lala popo 20', 14, 'opened', '2017-03-07 00:37:03', '2017-03-07 00:37:03')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 21', 'lala popo 22', 14, 'opened', '2017-03-07 00:37:03', '2017-03-07 00:37:03')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 23', 'lala popo 24', 15, 'opened', '2017-03-07 00:37:03', '2017-03-07 00:37:03')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/requests" for 127.0.0.1 at 2017-03-06 21:37:03 -0300
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (43.3ms)[0m  [1m[33mUPDATE `users` SET `sign_in_count` = 1, `current_sign_in_at` = '2017-03-07 00:37:03', `last_sign_in_at` = '2017-03-07 00:37:03', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1' WHERE `users`.`id` = 14[0m
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RequestsController#index as HTML
+  [1m[36mRequest Load (0.9ms)[0m  [1m[34mSELECT `requests`.* FROM `requests` WHERE `requests`.`user_id` = 14 ORDER BY `requests`.`updated_at` DESC[0m
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+  [1m[35m (37.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john15@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john15@lala.com', '$2a$04$4ST6/FdKB4k0oy7.k6405uVqCyKbzy4KVrxrN8SFUR6w8BWGxA34C', '2017-03-07 00:37:03', '2017-03-07 00:37:03', 'John Spencer15')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 25', 'lala popo 26', 16, 'opened', '2017-03-07 00:37:03', '2017-03-07 00:37:03')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/requests/13/resolve" for 127.0.0.1 at 2017-03-06 21:37:03 -0300
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `users` SET `sign_in_count` = 1, `current_sign_in_at` = '2017-03-07 00:37:03', `last_sign_in_at` = '2017-03-07 00:37:03', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1' WHERE `users`.`id` = 16[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RequestsController#resolve as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mRequest Load (0.8ms)[0m  [1m[34mSELECT  `requests`.* FROM `requests` WHERE `requests`.`user_id` = 16 AND `requests`.`id` = 13 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE `requests` SET `state` = 'resolved' WHERE `requests`.`id` = 13[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+  [1m[36mRequest Load (0.7ms)[0m  [1m[34mSELECT  `requests`.* FROM `requests` WHERE `requests`.`id` = 13 LIMIT 1[0m
+  [1m[35m (35.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john16@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john16@lala.com', '$2a$04$f5AlLV2vagDS6ABJkkRjx.RRX.MTS4LF6cBh3bSFq67JguSsOnv3a', '2017-03-07 00:37:03', '2017-03-07 00:37:03', 'John Spencer16')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john17@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john17@lala.com', '$2a$04$rPDHZBdZIX85DUxlh8QPYORw6TBDO8euaZIbqsLsfsvgJMWOwo1NW', '2017-03-07 00:37:03', '2017-03-07 00:37:03', 'John Spencer17')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 27', 'lala popo 28', 17, 'opened', '2017-03-07 00:37:03', '2017-03-07 00:37:03')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/requests/14/resolve" for 127.0.0.1 at 2017-03-06 21:37:03 -0300
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE `users` SET `sign_in_count` = 1, `current_sign_in_at` = '2017-03-07 00:37:03', `last_sign_in_at` = '2017-03-07 00:37:03', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1' WHERE `users`.`id` = 18[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RequestsController#resolve as JSON
+  Parameters: {"id"=>"14"}
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT  `requests`.* FROM `requests` WHERE `requests`.`user_id` = 18 AND `requests`.`id` = 14 LIMIT 1[0m
+Completed 404 Not Found in 3ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+  [1m[35m (29.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john18@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john18@lala.com', '$2a$04$ofr3rUCp0Ctsf8YmdZE8GOLUvtA3im8l6jvx7gaSXZKPVccTKO8dy', '2017-03-07 00:37:03', '2017-03-07 00:37:03', 'John Spencer18')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john19@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john19@lala.com', '$2a$04$H.6im.YPesrQVuF1C9Abt.FrbvucGj7WBP7Y4KXM4zMS2oS/mBOFq', '2017-03-07 00:37:04', '2017-03-07 00:37:04', 'John Spencer19')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 29', 'lala popo 30', 20, 'opened', '2017-03-07 00:37:04', '2017-03-07 00:37:04')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRequest Load (0.8ms)[0m  [1m[34mSELECT  `requests`.* FROM `requests` WHERE `requests`.`id` = 15 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `comments` (`body`, `request_id`, `user_id`, `created_at`, `updated_at`) VALUES ('lala popo', 15, 19, '2017-03-07 00:37:04', '2017-03-07 00:37:04')[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 20 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRequest Load (0.9ms)[0m  [1m[34mSELECT  `requests`.* FROM `requests` WHERE `requests`.`id` = 15 LIMIT 1[0m
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`request_id` = 15 ORDER BY `comments`.`id` DESC LIMIT 1[0m
+  [1m[35m (30.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john20@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `roles`, `name`) VALUES ('john20@lala.com', '$2a$04$IJUT6ZgeAzyhjFW1sgII/ewZ76BCtkIX90m.UeFwPHrqCPHTO29bS', '2017-03-07 00:37:04', '2017-03-07 00:37:04', 'admin', 'John Spencer20')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'john21@lala.com' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('john21@lala.com', '$2a$04$e35l0cPfHBuaIaGxkP9YAeBOUls4iO5unTLZ2XDai5ea.wc09oS.O', '2017-03-07 00:37:04', '2017-03-07 00:37:04', 'John Spencer21')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `requests` (`title`, `description`, `user_id`, `state`, `created_at`, `updated_at`) VALUES ('lala popo 31', 'lala popo 32', 22, 'opened', '2017-03-07 00:37:04', '2017-03-07 00:37:04')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRequest Load (0.8ms)[0m  [1m[34mSELECT  `requests`.* FROM `requests` WHERE `requests`.`id` = 16 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `comments` (`body`, `request_id`, `user_id`, `created_at`, `updated_at`) VALUES ('lala popo', 16, 21, '2017-03-07 00:37:04', '2017-03-07 00:37:04')[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 22 LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `requests` SET `state` = 'waiting_user_reply' WHERE `requests`.`id` = 16[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRequest Load (0.7ms)[0m  [1m[34mSELECT  `requests`.* FROM `requests` WHERE `requests`.`id` = 16 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`request_id` = 16 ORDER BY `comments`.`id` DESC LIMIT 1[0m
+  [1m[35m (37.1ms)[0m  [1m[31mROLLBACK[0m

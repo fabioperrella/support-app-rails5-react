@@ -1,0 +1,13 @@
+example_id                                                     | status | run_time        |
+-------------------------------------------------------------- | ------ | --------------- |
+./spec/models/request_spec.rb[1:1:1]                           | passed | 0.30723 seconds |
+./spec/requests/admin/request_controller_spec.rb[1:1:1]        | passed | 0.81363 seconds |
+./spec/requests/admin/request_controller_spec.rb[1:2:1]        | passed | 19.43 seconds   |
+./spec/requests/comments_controller_spec.rb[1:1:1]             | passed | 0.14419 seconds |
+./spec/requests/comments_controller_spec.rb[1:2:1]             | passed | 0.2266 seconds  |
+./spec/requests/devise/registrations_controller_spec.rb[1:1:1] | passed | 0.13332 seconds |
+./spec/requests/requests_controller_spec.rb[1:1:1]             | passed | 0.13596 seconds |
+./spec/requests/requests_controller_spec.rb[1:2:1]             | passed | 0.06891 seconds |
+./spec/requests/requests_controller_spec.rb[1:2:2]             | passed | 0.06196 seconds |
+./spec/services/comment_creator_spec.rb[1:1:1]                 | passed | 0.06959 seconds |
+./spec/services/comment_creator_spec.rb[1:1:2]                 | passed | 0.07732 seconds |

@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-xs-6">
+    <h3>Closed requests in <%= @date %></h3>
+    <p>From <%= l(@initial_date, format: :date) %> to <%= l(@final_date, format: :date) %></p>
+  </div>
+</div>
+<div class="row">
+  <table class="table table-striped">
+    <thead>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+    </thead>
+    <tbody>
+      <% @closed_requests.each do |request| %>
+        <tr>
+          <td><%= request.id %></td>
+          <td><%= request.title %></td>
+          <td><%= l(request.created_at, format: :short) %></td>
+          <td><%= l(request.updated_at, format: :short) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
